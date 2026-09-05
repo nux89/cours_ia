@@ -9,14 +9,17 @@ Bienvenue dans ce cursus complet d'Intelligence Artificielle conçu pour des ét
 - **Public visé** : étudiants de niveau licence, élèves ingénieurs et professionnels disposant des bases de Python.
 - **Prérequis** : variables, fonctions, boucles et classes en Python ; algèbre linéaire élémentaire ; moyenne, variance et probabilités de base.
 - **Environnement recommandé** : Python 3.10 à 3.12, dans un environnement virtuel dédié.
-- **Charge indicative** : 38 à 48 heures pour le parcours complet, dont environ la moitié en pratique. Une lecture « fondamentaux » peut se limiter aux sections 1 à 9 de chaque cours ; les sections suivantes constituent l'approfondissement et la mise en production.
+- **Charge indicative** : le cœur du cursus (modules 1 à 4) demande 38 à 48 heures, dont environ la moitié en pratique. Le module 0 (fondements) et les modules 5 à 8 (NLP & LLMs, apprentissage par renforcement, MLOps, éthique & régulation) ajoutent chacun quelques heures de lecture selon les besoins, portant le parcours complet à environ 60 à 80 heures. Une lecture « fondamentaux » peut se limiter aux premières sections de chaque cours ; les sections suivantes constituent l'approfondissement et la mise en production.
 
 À la fin du parcours, l'apprenant doit pouvoir :
 
 1. diagnostiquer un jeu de données et construire un prétraitement sans fuite d'information ;
 2. choisir une métrique cohérente avec le coût des erreurs et évaluer un modèle sur des données non vues ;
 3. expliquer puis entraîner des architectures neuronales, choisir une stratégie de transfert et raisonner sur un système encodeur–décodeur ou multimodal ;
-4. distinguer modèle génératif, RAG, mémoire, outil et skill, puis concevoir une orchestration mono ou multi-agent avec des garde-fous vérifiables.
+4. distinguer modèle génératif, RAG, mémoire, outil et skill, puis concevoir une orchestration mono ou multi-agent avec des garde-fous vérifiables ;
+5. traiter le langage naturel et piloter un grand modèle de langage — représentations, prompting, décodage, évaluation et gestion de l'hallucination ;
+6. formaliser un problème de décision séquentielle et situer les méthodes d'apprentissage par renforcement, jusqu'à l'alignement par préférences (RLHF) ;
+7. rendre un système reproductible, le déployer progressivement et le surveiller, tout en l'inscrivant dans un cadre éthique et réglementaire explicite.
 
 Chaque notebook contient des vérifications exécutables. Le [projet final](PROJET_FINAL.md) permet d'évaluer l'ensemble de ces compétences avec une grille explicite.
 
@@ -31,34 +34,57 @@ L'intelligence artificielle moderne ne se résume pas à l'appel de bibliothèqu
 3. **La modélisation neuronale et expressive (Deep Learning)** : Comprendre descente de gradient et rétropropagation, puis relier MLP, CNN, RNN/LSTM, attention et Transformers aux architectures encodeur–décodeur, au transfer learning, au fine-tuning, au multimodal et à la diffusion.
 4. **Le paradigme de l'autonomie (IA Agentique)** : Passer du modèle au système contrôlé qui récupère des connaissances, gère un contexte, charge des skills, utilise des outils externes et orchestre éventuellement plusieurs agents sous politiques de sécurité.
 
+Ces quatre piliers reposent sur un **socle de fondements mathématiques et Python** (module 0, à lire ou à consulter selon les besoins) et sont prolongés par des **spécialisations et une mise en pratique responsable** : traitement du langage et grands modèles (module 5), apprentissage par renforcement (module 6), MLOps et mise en production (module 7), éthique, sécurité et régulation (module 8). Un [glossaire transversal](GLOSSAIRE.md) unifie tout le vocabulaire.
+
 ---
 
 ## 📂 Organisation du Cursus
 
-Le cursus est découpé en 4 dossiers thématiques autonomes et progressifs :
+Le cursus s'articule autour de **quatre modules cœur** (1 à 4), progressifs et autonomes, encadrés par un **socle de fondements** (module 0) et prolongés par des **spécialisations et une mise en pratique responsable** (modules 5 à 8), plus des ressources transversales :
 
 ```text
 cours_ia/
+├── 00_fondements_maths_python/
+│   └── cours_fondements_maths_python.md         # Algèbre linéaire, gradient, probas-stats, NumPy
+│
 ├── 01_nature_et_preparation_des_donnees/
-│   ├── cours_nature_et_preparation_donnees.md   # Typologie étendue, EDA, associations, qualité, gouvernance & dérive
+│   ├── cours_nature_et_preparation_donnees.md   # Typologie, EDA, associations, qualité, gouvernance & dérive
 │   ├── 01_preparation_donnees_pratique.ipynb    # TP : prétraitement étanche avec Scikit-Learn
 │   └── 02_eda_correlations_pandas_polars.ipynb  # TP : Pandas, Polars, visualisations, corrélations & sélection
 │
 ├── 02_machine_learning/
-│   ├── cours_machine_learning.md                # Catalogue par problème, métriques, validation, interprétation & cycle de vie
-│   └── 02_machine_learning_scikit_learn.ipynb   # TP interactif : Régression, Classification, PCA, Pipelines & GridSearch
+│   ├── cours_machine_learning.md                # Catalogue par problème, métriques, validation & cycle de vie
+│   └── 02_machine_learning_scikit_learn.ipynb   # TP : Régression, Classification, PCA, Pipelines & GridSearch
 │
 ├── 03_deep_learning/
 │   ├── cours_deep_learning.md                   # Réseaux, transfert, fine-tuning, multimodal, captioning & diffusion
-│   ├── 01_perceptron_et_mlp.ipynb               # TP 1 : Perceptron unitaire & Multi-Layer Perceptron (PyTorch)
-│   ├── 02_cnn_vision.ipynb                      # TP 2 : Réseaux convolutifs pour la vision par ordinateur
-│   ├── 03_rnn_series_temporelles.ipynb          # TP 3 : Réseaux récurrents & séries temporelles
-│   ├── 04_lstm_sequences.ipynb                  # TP 4 : Cellules LSTM & résolution du vanishing gradient
-│   └── 05_decouverte_autres_architectures.ipynb # TP 5 : Attention, Transformers, Auto-encodeurs & panorama génératif
+│   ├── 01_perceptron_et_mlp.ipynb               # TP 1 : Perceptron & MLP (PyTorch)
+│   ├── 02_cnn_vision.ipynb                      # TP 2 : Réseaux convolutifs (vision)
+│   ├── 03_rnn_series_temporelles.ipynb          # TP 3 : RNN & séries temporelles
+│   ├── 04_lstm_sequences.ipynb                  # TP 4 : LSTM & vanishing gradient
+│   └── 05_decouverte_autres_architectures.ipynb # TP 5 : Attention, Transformers, Auto-encodeurs & génératif
 │
-└── 04_ia_agentique/
-    ├── cours_ia_agentique.md                    # RAG, bases de connaissances, outils, skills, multi-agents & garde-fous
-    └── 01_tp_agent_autonome.ipynb               # TP : boucle d'outils structurée, sûre et testable (sans API)
+├── 04_ia_agentique/
+│   ├── cours_ia_agentique.md                    # RAG, connaissances, outils, skills, multi-agents & garde-fous
+│   └── 01_tp_agent_autonome.ipynb               # TP : boucle d'outils sûre et testable (sans API)
+│
+├── 05_nlp_et_llms/
+│   └── cours_nlp_et_llms.md                     # Texte, embeddings, tâches NLP, LLMs, prompting & décodage
+│
+├── 06_apprentissage_par_renforcement/
+│   └── cours_apprentissage_par_renforcement.md  # MDP, valeurs, Q-learning, policy gradient, Deep RL & RLHF
+│
+├── 07_mlops_production/
+│   └── cours_mlops_production.md                # Reproductibilité, pipelines, registre, serving & monitoring
+│
+├── 08_ethique_securite_regulation/
+│   └── cours_ethique_securite_regulation.md     # Biais/équité, vie privée, régulation, sécurité & impact
+│
+├── GLOSSAIRE.md                                 # Index unique de tout le vocabulaire
+├── PROJET_FINAL.md                              # Projet intégrateur + grille sur 100
+├── REFERENCES.md                                # Bibliographie de vérification
+├── AUDIT_PEDAGOGIQUE.md                         # Diagnostic éditorial
+└── requirements.txt                             # Dépendances épinglées
 ```
 
 ---
@@ -101,7 +127,7 @@ python scripts/validate_markdown.py
 python scripts/validate_notebooks.py
 ```
 
-Les références primaires et documentations officielles utilisées pour vérifier le contenu sont regroupées dans [REFERENCES.md](REFERENCES.md). Le diagnostic éditorial ayant conduit à cette révision est consigné dans [AUDIT_PEDAGOGIQUE.md](AUDIT_PEDAGOGIQUE.md).
+Les références primaires et documentations officielles utilisées pour vérifier le contenu sont regroupées dans [REFERENCES.md](REFERENCES.md), et tout le vocabulaire du cursus dans le [glossaire transversal](GLOSSAIRE.md). Le diagnostic éditorial ayant conduit à la révision du cœur du cursus est consigné dans [AUDIT_PEDAGOGIQUE.md](AUDIT_PEDAGOGIQUE.md).
 
 ---
 
@@ -110,35 +136,30 @@ Les références primaires et documentations officielles utilisées pour vérifi
 Si vous débutez en Intelligence Artificielle, le vocabulaire peut sembler vertigineux. Voici comment s'emboîtent naturellement toutes les notions abordées dans ce cursus :
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────┐
-│ 1. INTELLIGENCE ARTIFICIELLE (IA)                                                │
-│    Le champ global : tout système capable de simuler un comportement intelligent  │
-│    (systèmes experts à base de règles, algorithmes de recherche A*, logique).    │
-│                                                                                  │
-│    ┌────────────────────────────────────────────────────────────────────────┐    │
-│    │ 2. MACHINE LEARNING (ML) [Module 1 & 2]                                 │    │
-│    │    L'ordinateur apprend les règles à partir des données statistiques    │    │
-│    │    (Régression, Arbres de décision, Forêts Aléatoires, SVM, K-Means).  │    │
-│    │                                                                        │    │
-│    │    ┌──────────────────────────────────────────────────────────────┐    │    │
-│    │    │ 3. DEEP LEARNING (Apprentissage Profond) [Module 3]           │    │    │
-│    │    │    Sous-ensemble du ML basé sur des réseaux de neurones      │    │    │
-│    │    │    artificiels profonds à plusieurs couches (MLP, CNN, LSTM).│    │    │
-│    │    │                                                              │    │    │
-│    │    │    ┌────────────────────────────────────────────────────┐    │    │    │
-│    │    │    │ 4. MODÈLES DE FONDATION & IA GÉNÉRATIVE            │    │    │    │
-│    │    │    │    Transformers, modèles de langage et diffusion,  │    │    │    │
-│    │    │    │    Diffusion (génération d'images et de code).     │    │    │    │
-│    │    │    └────────────────────────────────────────────────────┘    │    │    │
-│    │    └──────────────────────────────────────────────────────────────┘    │    │
-│    └────────────────────────────────────────────────────────────────────────┘    │
-│                                                                                  │
-│    ┌────────────────────────────────────────────────────────────────────────┐    │
-│    │ 5. IA AGENTIQUE [Module 4]                                             │    │
-│    │    Donne des bras, des yeux et une mémoire au modèle : autonomie,      │    │    │
-│    │    boucle ReAct, utilisation d'outils externes et systèmes multi-agents│    │
-│    └────────────────────────────────────────────────────────────────────────┘    │
-└──────────────────────────────────────────────────────────────────────────────────┘
+IA — INTELLIGENCE ARTIFICIELLE
+Tout système simulant un comportement intelligent (règles, recherche A*, logique).
+│
+├─ MACHINE LEARNING — Modules 1 & 2
+│   │   L'ordinateur apprend des règles à partir des données.
+│   │   Supervisé · Non supervisé · Par renforcement → Module 6
+│   │   (Régression, arbres, forêts, SVM, K-Means…)
+│   │
+│   └─ DEEP LEARNING — Module 3
+│       │   Réseaux de neurones profonds : MLP, CNN, RNN/LSTM, Transformers.
+│       │
+│       └─ MODÈLES DE FONDATION & IA GÉNÉRATIVE
+│           Transformers et LLMs → Module 5 ; diffusion (images, audio).
+│
+└─ IA AGENTIQUE — Module 4
+    Donne outils, mémoire et autonomie au modèle :
+    RAG, boucle ReAct, appels d'outils, multi-agents et garde-fous.
+
+────────────────────────────────────────────────────────────────────────────
+SOCLE ET COUCHES TRANSVERSALES
+• Module 0 — Fondements mathématiques & Python (socle de tout le cursus)
+• Module 7 — MLOps & mise en production (rendre un modèle fiable et maintenu)
+• Module 8 — Éthique, sécurité & régulation (lecture responsable des modules)
+• GLOSSAIRE.md — index unique de tout le vocabulaire
 ```
 
 ---
