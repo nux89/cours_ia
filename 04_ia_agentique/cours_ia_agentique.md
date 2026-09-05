@@ -1,5 +1,7 @@
 # Module 4 : L'Intelligence Artificielle Agentique
 
+Pratique complémentaire : l'[atelier documentaire](atelier_rag_documentaire.md) met en œuvre récupération dans les cours, citations et abstention. Il distingue cette chaîne extractive hors ligne d'un RAG avec génération par LLM.
+
 > "Les modèles de fondation ne sont pas la destination finale de l'IA, ils en sont le moteur cognitif. L'agentique transforme ce moteur en un système autonome capable de percevoir, raisonner, planifier et agir dans le monde réel."
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez distinguer modèle, workflow et agent ; concevoir un RAG avec citations ; séparer base de connaissances, mémoire, outils et skills ; écrire des contrats d'outils sûrs ; choisir une orchestration mono ou multi-agent ; définir garde-fous, évaluations, observabilité et conditions d'arrêt avant la mise en production.

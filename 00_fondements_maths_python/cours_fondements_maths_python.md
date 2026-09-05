@@ -60,10 +60,12 @@ vecteur   [2.5, 4.1, -1.0]       → 1 dimension (un individu, un embedding)
 matrice   [[25, 32],             → 2 dimensions (un tableau X : lignes × colonnes)
            [45, 65],
            [38, 48]]
-tenseur   images [B, C, H, W]    → 3+ dimensions (module 3)
+tenseur   images [B, C, H, W]    → exemple à 4 axes (module 3)
 ```
 
 Notations usuelles : un vecteur $\mathbf{x}\in\mathbb{R}^d$ (d nombres), une matrice $\mathbf{X}\in\mathbb{R}^{n\times d}$ ($n$ lignes, $d$ colonnes). C'est exactement le $\mathbf{X}$ et le $\mathbf{y}$ du module 1.
+
+En calcul numérique, un tenseur est un tableau à un nombre quelconque d'axes : scalaire, vecteur et matrice en sont des cas particuliers. Un vecteur de 512 composantes a un seul axe. Les [calculs guidés complémentaires](complements_mathematiques.md) développent les notations, gradients, covariance, attention et incertitudes.
 
 ### 2.2 Les opérations qui comptent
 
@@ -81,7 +83,7 @@ C'est littéralement la somme pondérée d'un neurone (module 3) et le cœur d'u
 
 $$[n\times d]\cdot[d\times k]=[n\times k].$$
 
-> ⚠️ **La majorité des bugs de deep learning sont des erreurs de forme.** Écrivez la forme attendue après chaque opération (conseil repris au module 3).
+> ⚠️ **Les erreurs de forme sont une source fréquente de bugs.** Écrivez la forme attendue après chaque opération (conseil repris au module 3).
 
 **Transposée** $\mathbf{X}^T$ : échange lignes et colonnes ($[n\times d]\to[d\times n]$).
 
@@ -97,6 +99,8 @@ La **similarité cosinus** mesure l'angle, en ignorant les longueurs — central
 $$\cos(\mathbf{a},\mathbf{b})=\frac{\mathbf{a}\cdot\mathbf{b}}{\|\mathbf{a}\|\,\|\mathbf{b}\|}\in[-1, 1].$$
 
 > 💡 **Pourquoi la mise à l'échelle compte.** Dans $d(\mathbf{a},\mathbf{b})$, une variable exprimée en dizaines de milliers (un salaire) écrase une variable exprimée en dizaines (un âge). C'est la justification mathématique du *scaling* vu au module 1.
+
+La similarité cosinus exige deux vecteurs non nuls. Une convention logicielle pour un embedding nul ne lui donne pas un angle mathématique : traiter explicitement les requêtes hors vocabulaire.
 
 ### 2.4 Notions à connaître de nom (intuition suffit)
 
@@ -145,7 +149,7 @@ On multiplie les pentes le long de la chaîne. Un réseau de neurones n'est qu'u
 
 *Exemple chiffré minimal.* Soit $z=wx$ avec $x=2$, et $\mathcal{L}=z^2$. Alors $\frac{\partial \mathcal{L}}{\partial z}=2z$ et $\frac{\partial z}{\partial w}=x=2$. Si $w=3$, alors $z=6$, donc $\frac{\partial \mathcal{L}}{\partial w}=2\times 6\times 2=24$. Un pas de descente avec $\eta=0.01$ donne $w\leftarrow 3-0.01\times 24=2.76$ : on a réduit $w$, ce qui réduit $\mathcal{L}$. ✅
 
-> 💡 **Convexe ou non ?** Une fonction convexe (« une seule cuvette ») garantit qu'un minimum trouvé est *le* minimum. Les réseaux profonds sont non convexes (plein de creux), mais la descente de gradient y trouve en pratique des solutions utiles — sans garantie d'optimum global (voir §6).
+> 💡 **Convexe ou non ?** Pour une fonction convexe sur un domaine convexe, tout minimum local est global, mais plusieurs minimiseurs peuvent exister. La stricte convexité assure l'unicité si le minimum existe. La convexité seule ne garantit ni l'existence du minimum ni la convergence de n'importe quel algorithme. Les réseaux profonds sont généralement non convexes.
 
 ---
 
@@ -153,11 +157,11 @@ On multiplie les pentes le long de la chaîne. Un réseau de neurones n'est qu'u
 
 ### 4.1 Vocabulaire de base
 
-- **Probabilité** $P(A)\in[0, 1]$ : 0 = impossible, 1 = certain.
+- **Probabilité** $P(A)\in[0, 1]$ : mesure de la chance d'un événement. En continu, une valeur exacte peut avoir une probabilité nulle sans être impossible. Probabilité 1 signifie « presque sûrement ».
 - **Événements complémentaires** : $P(\text{non }A)=1-P(A)$.
 - **Union / intersection** : $P(A\text{ ou }B)=P(A)+P(B)-P(A\text{ et }B)$.
 - **Indépendance** : $A$ et $B$ sont indépendants si $P(A\text{ et }B)=P(A)P(B)$.
-- **Probabilité conditionnelle** : $P(A\mid B)=\dfrac{P(A\text{ et }B)}{P(B)}$ — « la probabilité de $A$ **sachant** que $B$ est arrivé ».
+- **Probabilité conditionnelle** : $P(A\mid B)=\dfrac{P(A\text{ et }B)}{P(B)}$, pour $P(B)>0$ — « la probabilité de $A$ **sachant** que $B$ est arrivé ».
 
 ### 4.2 Variables aléatoires et distributions
 
@@ -166,12 +170,12 @@ Une **variable aléatoire** associe un nombre à un résultat incertain (le rés
 | Distribution | Décrit | Exemple |
 | :--- | :--- | :--- |
 | Bernoulli | un tirage oui/non | clic / pas de clic |
-| Binomiale | nombre de succès sur $n$ tirages | 7 conversions sur 100 |
-| Poisson | comptage d'événements rares | appels par heure |
+| Binomiale | succès sur $n$ Bernoulli indépendantes de même probabilité $p$ | conversions sous cette hypothèse |
+| Poisson | comptage de moyenne $\lambda$ | appels par heure, si le modèle de comptage convient |
 | Uniforme | toutes les valeurs équiprobables | initialisation aléatoire |
 | Normale (gaussienne) | valeurs groupées autour d'une moyenne | bruit de mesure, erreurs |
 
-La loi **normale** $\mathcal{N}(\mu,\sigma^2)$ revient partout : moyenne $\mu$ (le centre), écart-type $\sigma$ (l'étalement). Environ 68 % de la masse tombe dans $[\mu-\sigma, \mu+\sigma]$ et 95 % dans $[\mu-2\sigma, \mu+2\sigma]$ — d'où la plage $[-3, +3]$ typique après standardisation (module 1).
+La loi **normale** $\mathcal{N}(\mu,\sigma^2)$ a pour moyenne $\mu$ et écart-type $\sigma$. Pour cette loi, environ 68 % de la masse tombe à un écart-type de la moyenne et 95 % à deux. La standardisation $(x-\mu)/\sigma$ ne rend pas une distribution gaussienne et ne borne pas ses valeurs à $[-3,3]$. Les statistiques de transformation sont apprises sur le train uniquement. Un processus de Poisson homogène suppose notamment un taux constant et des accroissements indépendants ; un comptage n'est pas automatiquement poissonien.
 
 ### 4.3 Espérance et variance
 
@@ -194,7 +198,7 @@ $$P(A\mid B)=\frac{P(B\mid A)\,P(A)}{P(B)}.$$
 
 La **vraisemblance** mesure à quel point un modèle de paramètres $\theta$ rend les données observées plausibles : $\mathcal{L}(\theta)=P(\text{données}\mid\theta)$. On cherche souvent le $\theta$ qui la **maximise** (maximum de vraisemblance).
 
-Comme un produit de nombreuses probabilités devient minuscule, on maximise la **log-vraisemblance** (transformer un produit en somme, plus stable numériquement). Minimiser la **log-loss / entropie croisée** du module 2 revient exactement à maximiser la log-vraisemblance d'un modèle probabiliste — les deux points de vue coïncident.
+Pour des observations indépendantes conditionnellement au modèle, la vraisemblance est un produit ; en continu, elle utilise des densités, pas la probabilité de valeurs exactes. La **log-vraisemblance** transforme ce produit en somme. En classification catégorielle, minimiser l'entropie croisée empirique non régularisée équivaut à maximiser la log-vraisemblance conditionnelle. Une pénalité ajoutée change l'objectif.
 
 ---
 
@@ -206,16 +210,16 @@ Les probabilités partent du modèle vers les données ; les statistiques font l
 
 On observe rarement toute la population ; on travaille sur un **échantillon**. Une statistique calculée dessus (moyenne, proportion) est une **estimation** de la vraie valeur, entachée d'incertitude. Le module 1 rappelle qu'un échantillon est le produit d'un mécanisme de collecte, pas « la réalité ».
 
-### 5.2 Deux théorèmes qui justifient tout le reste
+### 5.2 Deux théorèmes et leurs hypothèses
 
-- **Loi des grands nombres** : plus l'échantillon grandit, plus la moyenne observée s'approche de l'espérance. C'est pourquoi plus de données (représentatives) aident.
-- **Théorème central limite (TCL)** : la moyenne de nombreuses variables indépendantes suit approximativement une loi normale, *quelle que soit* la distribution d'origine. C'est ce qui rend les intervalles de confiance possibles.
+- **Loi des grands nombres**, version usuelle : pour des observations indépendantes et identiquement distribuées (i.i.d.) avec espérance absolue finie, la moyenne converge vers l'espérance. Cela ne corrige pas un échantillonnage biaisé.
+- **Théorème central limite**, version i.i.d. : si la variance $\sigma^2$ est finie et strictement positive, $\sqrt n(\bar X-\mu)/\sigma$ converge en distribution vers une normale standard. La qualité de l'approximation à effectif fini dépend de la distribution. Une loi de Cauchy ne satisfait pas ces hypothèses ; des séries dépendantes demandent d'autres conditions.
 
 ### 5.3 Incertitude : écart-type, erreur standard, intervalle
 
-Ne jamais rapporter une moyenne seule. L'**erreur standard** de la moyenne décroît comme $\sigma/\sqrt{n}$ : quadrupler les données divise l'incertitude par deux seulement. Un **intervalle de confiance** exprime une plage plausible ; il ne dit pas « la vraie valeur est ici à 95 % » au sens naïf, mais « une procédure comme celle-ci contient la vraie valeur 95 % du temps ».
+Sous les hypothèses i.i.d. à variance finie, l'**erreur standard** de la moyenne vaut $\sigma/\sqrt n$, estimée par $s/\sqrt n$. Quadrupler l'effectif divise cette erreur standard par deux. Un **intervalle de confiance à 95 %** provient d'une procédure couvrant le paramètre dans 95 % des répétitions sous ses hypothèses, pas d'une probabilité fréquentiste attribuée au paramètre fixe.
 
-Le module 2 applique directement ceci : rapporter *moyenne ± dispersion* d'une validation croisée, et se méfier d'un écart de 0,2 point qui n'est pas significatif.
+Les folds de validation croisée partagent des données d'entraînement : leur dispersion n'est pas automatiquement une erreur standard ou un intervalle de confiance. La significativité d'un écart de 0,2 point dépend du protocole et des effectifs ; son importance pratique dépend du problème.
 
 ### 5.4 Tests d'hypothèse et p-value, sans superstition
 
@@ -234,7 +238,7 @@ La corrélation (module 1) résume une relation en un nombre. Rappels essentiels
 Entraîner un modèle, c'est minimiser une fonction de perte. Quelques notions transversales :
 
 - **Minimum global vs local** : le point le plus bas partout, versus un creux dont on ne peut sortir par petits pas. Les modèles linéaires réguliers ont souvent un paysage convexe (un seul creux) ; les réseaux profonds non.
-- **Point-selle** : plat dans une direction, en pente dans une autre — fréquent en haute dimension et plus problématique que les minima locaux.
+- **Point-selle stationnaire** : gradient nul mais ni minimum ni maximum local. Exemple : $f(x,y)=x^2-y^2$ en $(0,0)$ augmente le long de $x$ et diminue le long de $y$ : les courbures ont des signes opposés.
 - **Taux d'apprentissage** : trop grand, on diverge (perte `NaN`) ; trop petit, on rampe (module 3).
 - **Stochastique vs batch** : calculer le gradient sur un **mini-lot** (module 3) est bruité mais rapide, et le bruit aide parfois à s'échapper d'un mauvais creux.
 - **Convexité** : si la fonction est convexe, tout minimum local est global — confort théorique rare en deep learning mais fréquent en ML classique régularisé.

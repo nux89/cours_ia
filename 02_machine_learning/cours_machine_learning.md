@@ -108,8 +108,10 @@ Considérez trois élèves préparant un examen :
 ```
 
 ### 2.1 La Formule Mathématique de Décomposition de l'Erreur
-Sous une perte quadratique et les hypothèses usuelles, l'erreur prédictive attendue en un point se décompose en :
+Sous une perte quadratique, pour une entrée fixée, un bruit conditionnel centré à variance finie et un jeu d'apprentissage indépendant du bruit de test, l'erreur prédictive attendue se décompose en :
 $$\text{Erreur Totale} = \underbrace{\text{Biais}^2}_{\text{Erreur de simplification}} + \underbrace{\text{Variance}}_{\text{Sensibilité excessive aux données de train}} + \underbrace{\sigma^2}_{\text{Bruit incompressible}}$$
+
+L'espérance et la variance du prédicteur portent sur les jeux d'entraînement possibles. Ce n'est pas une identité générale pour l'accuracy en classification. Voir les [calculs guidés](../00_fondements_maths_python/complements_mathematiques.md), qui développent également covariance, PCA et gradients.
 
 ### 2.2 Régularisation : Comment Dompter le Surapprentissage ?
 Pour empêcher un modèle linéaire de devenir un "perroquet" et d'accorder des coefficients démesurés à des détails insignifiants, on lui impose une pénalité mathématique :

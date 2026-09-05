@@ -1,6 +1,6 @@
 # 🎓 Cursus Universitaire d'Intelligence Artificielle : De la Donnée aux Systèmes Agentiques
 
-Bienvenue dans ce cursus complet d'Intelligence Artificielle conçu pour des étudiants en sciences de l'ingénieur, en informatique et pour les professionnels souhaitant acquérir une maîtrise théorique et pratique approfondie du domaine.
+Ce cursus généraliste d'intelligence artificielle associe fondements, exemples et travaux pratiques pour des étudiants et professionnels disposant de bases de Python. Il permet de comprendre les principales familles de méthodes, de conduire des expériences reproductibles et de situer les spécialisations qui demandent un parcours supplémentaire.
 
 ---
 
@@ -23,6 +23,20 @@ Bienvenue dans ce cursus complet d'Intelligence Artificielle conçu pour des ét
 
 Chaque notebook contient des vérifications exécutables. Le [projet final](PROJET_FINAL.md) permet d'évaluer l'ensemble de ces compétences avec une grille explicite.
 
+Les [objectifs, exercices et critères de réussite](PARCOURS_ET_EVALUATION.md) détaillent la couverture réelle des **11 modules et 21 notebooks**. Les nouveaux modules et ateliers ajoutent **24 à 37 heures**, et les trois lectures approfondies ci-dessous **6 à 9 heures**, au parcours initial de 60 à 80 heures : environ **90 à 126 heures** pour tout étudier. Ces durées restent à éprouver avec des apprenants.
+
+### Compléments et nouveaux ateliers
+
+- [Mathématiques : calculs guidés](00_fondements_maths_python/complements_mathematiques.md) : notations, gradient, covariance/PCA, softmax, attention, biais–variance et Adam.
+- [Images, vidéo, audio et multimodal](01_nature_et_preparation_des_donnees/traitement_images_video_audio_multimodal.md) : formats, unités, resampling, annotations, synchronisation, fusion et qualité.
+- [Architectures et méthodes émergentes](03_deep_learning/architectures_emergentes.md) : Mamba/SSD, MoE, JEPA, flow matching et KAN ; mécanismes, limites et comparaisons.
+- [Module 9 — Recherche, logique, contraintes et réseaux bayésiens](09_raisonnement_symbolique_probabiliste/cours_raisonnement_symbolique_probabiliste.md) : A*, systèmes experts, planification, CSP et inférence probabiliste ; [TP corrigé](09_raisonnement_symbolique_probabiliste/01_recherche_contraintes_bayes.ipynb).
+- [Module 10 — Causalité, prévision, recommandation et graphes](10_methodes_specialisees/cours_methodes_specialisees.md) : [TP causalité et prévision](10_methodes_specialisees/01_causalite_prevision.ipynb), [TP recommandation et GCN](10_methodes_specialisees/02_recommandation_graphes.ipynb).
+- [Ateliers de deep learning](03_deep_learning/ateliers_avances.md) : [transfert et fine-tuning](03_deep_learning/06_transfert_fine_tuning.ipynb), [captioning CNN–GRU](03_deep_learning/07_captioning_cnn_gru.ipynb), [diffusion 2D](03_deep_learning/08_diffusion_2d.ipynb).
+- [Atelier documentaire](04_ia_agentique/atelier_rag_documentaire.md) : [recherche dans les cours, citations et abstention](04_ia_agentique/02_rag_documents_citations.ipynb).
+
+Ordre conseillé : module 0, module 9, modules 1 à 3, module 10, modules 5 puis 4, module 6, modules 7 et 8. La numérotation historique des modules est conservée. Les ateliers neuronaux suivent le module 3 ; le TP documentaire suit le module 4.
+
 ---
 
 ## 🎯 Philosophie & Objectifs Pédagogiques
@@ -40,7 +54,7 @@ Ces quatre piliers reposent sur un **socle de fondements mathématiques et Pytho
 
 ## 📂 Organisation du Cursus
 
-Le cursus s'articule autour de **quatre modules cœur** (1 à 4), progressifs et autonomes, encadrés par un **socle de fondements** (module 0) et prolongés par des **spécialisations et une mise en pratique responsable** (modules 5 à 8), plus des ressources transversales :
+Le cursus conserve **quatre modules cœur** (1 à 4), un **socle de fondements** (module 0) et des spécialisations (modules 5 à 10). L'arborescence ci-dessous présente le socle historique ; les nouveaux modules, lectures et ateliers sont accessibles dans les liens ci-dessus et dans la matrice de couverture.
 
 ```text
 cours_ia/

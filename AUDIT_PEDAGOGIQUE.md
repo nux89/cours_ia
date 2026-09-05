@@ -1,6 +1,32 @@
 # Audit pédagogique et technique du cursus
 
-Audit réalisé le 4 septembre 2026 sur les quatre cours Markdown et les neuf notebooks du projet.
+Historique : premier audit du 4 septembre 2026 sur quatre cours et neuf notebooks. La mise à jour du 5 septembre ci-dessous décrit le périmètre actuel ; les sections suivantes conservent les constats et résultats historiques.
+
+## Mise à jour : cohérence et couverture au 5 septembre 2026
+
+Le cursus comprend désormais 11 modules et 21 notebooks. La revue a relié objectifs, prérequis, supports, exercices et critères dans [PARCOURS_ET_EVALUATION.md](PARCOURS_ET_EVALUATION.md). Le graphe a servi à repérer les relations entre données, mathématiques, attention et multimodal ; les corrections ont été vérifiées dans les sources, pas déduites du seul graphe.
+
+### Corrections et enrichissements appliqués
+
+- Mathématiques : préciser axes des tenseurs, cosinus de vecteurs non nuls, convexité et unicité, probabilité continue, hypothèses des lois et du TCL, erreur standard et dépendance des folds. Corriger le point-selle, expliciter biais–variance, dimensions de backpropagation, mécanisme d'Adam et conditions de convergence du Q-learning.
+- Ajouter un [support de calculs guidés](00_fondements_maths_python/complements_mathematiques.md) : produit matriciel, dérivée MSE, softmax/entropie croisée, covariance/PCA, attention et pas d'optimisation avec exemples numériques.
+- Développer [images, audio, vidéo et multimodal](01_nature_et_preparation_des_donnees/traitement_images_video_audio_multimodal.md) : formats industriels, unités, annotations, rééchantillonnage, STFT, alignement temporel, modes de fusion, absence de modalités et séparation par groupe.
+- Ajouter l'[ouverture sourcée sur les architectures](03_deep_learning/architectures_emergentes.md), en distinguant innovation architecturale, objectif d'apprentissage et méthode générative. Les résultats des articles ne sont pas présentés comme des garanties universelles.
+- Ajouter recherche/logique/CSP/Bayes, causalité/prévision/recommandation/GCN, et sept TP exécutables : raisonnement, causalité/prévision, recommandation/graphes, transfert, captioning, diffusion et récupération documentaire.
+- Mettre à jour parcours, renvois, charge indicative et voies du projet final ; la numérotation historique est conservée, avec ordre de lecture explicite.
+
+### Vérifications effectivement réalisées
+
+- `scripts/validate_notebooks.py` : **21/21 notebooks exécutés de haut en bas sans erreur**, assertions comprises. Les sept nouveaux TP ont leurs sorties enregistrées ; le contrôle global n'a pas réécrit les notebooks existants.
+- Validation de **24 fichiers Markdown pédagogiques et transversaux** : liens locaux, ancres et blocs de code valides. Les répertoires de dépendances et de skills ne font pas partie de ce contrôle.
+- `git diff --check` : aucun problème d'espacement détecté au contrôle.
+- `graphify update .` : graphe de code actualisé ; cette commande ne réalise pas une nouvelle extraction sémantique exhaustive des Markdown. Le graphe ne doit donc pas être considéré comme un inventaire exhaustif des nouveaux paragraphes.
+
+Quelques résultats des nouveaux TP : fine-tuning 95,84 % contre 96,65 % depuis zéro sur ce split de chiffres (le transfert ne gagne pas systématiquement) ; captioning synthétique 100 % de légendes exactes contre 23 % avec images supprimées ; bruit DDPM de test MSE 0,302 contre 0,983 pour prédiction nulle ; effet causal injecté 2, estimé 1,986 après ajustement contre différence brute 4,431. Ce sont des contrôles pédagogiques sur petits jeux, pas des scores industriels.
+
+### Limites restantes
+
+La préparation de médias est un support détaillé avec exercices, mais pas un pipeline validé sur des codecs, capteurs et corpus industriels. Le captioning et la diffusion restent synthétiques ; les garanties du transfert nécessitent des expériences répétées. Le RAG indexe les onze cours principaux, produit des extraits cités et teste une abstention facile : il ne génère pas avec un LLM, n'indexe pas tous les compléments et ne prouve pas la résistance aux injections. Les architectures émergentes sont une ouverture bibliographique, sans implémentation dédiée. Aucun cours généraliste ne couvre intégralement la discipline ; une validation pédagogique avec des apprenants reste nécessaire.
 
 ## Verdict initial
 

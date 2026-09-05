@@ -81,7 +81,7 @@ $$G_t=r_{t+1}+\gamma r_{t+2}+\gamma^2 r_{t+3}+\cdots=\sum_{k=0}^{\infty}\gamma^k
 Le facteur $\gamma$ règle l'**horizon** :
 - $\gamma\to 0$ : agent « myope », ne regarde que l'immédiat ;
 - $\gamma\to 1$ : agent « prévoyant », valorise le long terme ;
-- $\gamma<1$ garantit aussi une somme finie sur un horizon infini.
+- $\gamma<1$ garantit une somme absolument finie si les récompenses sont bornées : $|G_t|\le R_{\max}/(1-\gamma)$. Pour un épisode fini, $\gamma=1$ est possible.
 
 *Exemple chiffré* : récompenses $r=[0, 0, 10]$ sur trois pas, $\gamma=0.9$. Le retour initial vaut $0+0.9\cdot 0+0.9^2\cdot 10=8.1$. La même récompense obtenue plus tôt vaudrait davantage : l'actualisation encode « un gain proche vaut mieux qu'un gain lointain ».
 
@@ -100,7 +100,7 @@ Deux fonctions résument « à quel point une situation est bonne » sous une po
 - **Valeur d'état** $V^\pi(s)=\mathbb{E}_\pi[G_t\mid s_t=s]$ : le retour attendu si l'on part de $s$ et suit $\pi$.
 - **Valeur d'action (Q)** $Q^\pi(s, a)=\mathbb{E}_\pi[G_t\mid s_t=s, a_t=a]$ : le retour attendu si l'on fait $a$ en $s$ puis suit $\pi$.
 
-$Q$ est très pratique : si on la connaît, agir de façon optimale revient à **choisir l'action de plus grand $Q$**.
+$Q$ est très pratique : choisir une action maximisant **$Q^*$**, la valeur optimale, définit une politique optimale. Être glouton selon une estimation quelconque de $Q$ ou selon $Q^\pi$ ne l'assure pas.
 
 ### 3.3 Les équations de Bellman
 
@@ -136,7 +136,7 @@ Quand la dynamique $P$ est **inconnue** (le cas usuel), on apprend directement d
 
 ### 5.1 Monte Carlo
 
-Jouer des **épisodes complets**, puis mettre à jour les valeurs avec le retour réellement observé. Simple et non biaisé, mais il faut attendre la fin de l'épisode et la variance est élevée.
+Jouer des **épisodes complets**, puis mettre à jour les valeurs avec le retour observé. Pour une politique fixée et un retour intégrable, ce retour constitue une cible non biaisée de sa valeur conditionnelle, sans approximation par une valeur future (*bootstrap*). Il faut attendre la fin de l'épisode et la variance peut être élevée ; une politique changeante ou un estimateur hors politique demande une analyse supplémentaire.
 
 ### 5.2 Différence temporelle (TD)
 
@@ -146,12 +146,14 @@ Le terme entre crochets est l'**erreur TD** : l'écart entre ce qu'on attendait 
 
 ### 5.3 Q-Learning : apprendre à agir sans modèle
 
-Le **Q-learning** apprend directement $Q^\*$ :
+Le **Q-learning** vise $Q^\*$ par la mise à jour :
 $$Q(s, a)\leftarrow Q(s, a)+\alpha\big[r+\gamma\max_{a'}Q(s', a')-Q(s, a)\big].$$
 
 C'est une méthode **hors politique** (*off-policy*) : elle apprend la valeur de la meilleure action même en explorant autrement (ε-greedy). Sa cousine **SARSA** est **sur politique** (*on-policy*) : elle évalue la politique réellement suivie, exploration comprise, ce qui la rend souvent plus prudente près des dangers.
 
 *Exemple chiffré d'un pas.* $Q(s,a)=2$, récompense $r=1$, $\gamma=0.9$, meilleure valeur suivante $\max_{a'}Q(s',a')=5$, taux $\alpha=0.1$. Cible = $1+0.9\times 5=5.5$ ; erreur = $5.5-2=3.5$ ; mise à jour : $Q\leftarrow 2+0.1\times 3.5=2.35$. La valeur monte vers la cible, sans la rejoindre d'un coup.
+
+Pour un état terminal, la cible est $r$, sans terme de valeur future. La convergence tabulaire classique demande notamment un MDP fini à récompenses bornées, une exploration suffisante de chaque paire état–action et des pas vérifiant $\sum_t\alpha_t=\infty$ et $\sum_t\alpha_t^2<\infty$ par paire, avec actualisation stricte ou conditions épisodiques adaptées. Un taux constant et un nombre fini d'épisodes ne constituent pas une preuve de convergence. Ces garanties ne se transfèrent pas automatiquement à un réseau profond.
 
 ### 5.4 Tabulaire vs réaliste
 

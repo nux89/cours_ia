@@ -4,7 +4,7 @@
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez suivre les formes d'un tenseur, expliquer la rétropropagation, construire une boucle d'entraînement correcte, sélectionner architecture et fonction de perte, diagnostiquer sous/surapprentissage, décrire précisément un Transformer et évaluer un réseau au-delà de la seule loss.
 
-**Prérequis.** Modules 1 et 2, dérivée d'une fonction simple, produit matriciel et probabilités élémentaires. Les cinq notebooks associés couvrent MLP, CNN, RNN, LSTM, attention, Transformer et auto-encodeur.
+**Prérequis.** Modules 1 et 2, dérivée simple, produit matriciel et probabilités élémentaires ; consulter les [calculs guidés](../00_fondements_maths_python/complements_mathematiques.md). Les cinq premiers notebooks couvrent MLP, CNN, RNN, LSTM, attention, Transformer et auto-encodeur. Trois [ateliers avancés](ateliers_avances.md) pratiquent transfert, captioning CNN–GRU et diffusion 2D. Terminer par l'[ouverture sur les architectures émergentes](architectures_emergentes.md). La préparation des médias est détaillée dans le [complément du module 1](../01_nature_et_preparation_des_donnees/traitement_images_video_audio_multimodal.md).
 
 ---
 
@@ -104,7 +104,7 @@ Imaginez que vous êtes un randonneur au sommet d'une montagne accidentée. Un b
 Comment faites-vous ?
 1. Vous ne voyez pas le refuge au loin, mais vous sentez avec vos chaussures **la pente du terrain immédiatement sous vos pieds** (c'est le **Gradient** $\nabla \mathcal{L}$).
 2. Vous faites un pas dans la direction qui descend le plus fort (le sens opposé au gradient : $-\nabla \mathcal{L}$).
-3. Vous répétez cette opération pas après pas jusqu'à atteindre le fond de la cuvette.
+3. Vous répétez sous un critère d'arrêt, sans garantie générale d'atteindre le meilleur minimum. Une faible perte d'entraînement ne prouve pas la performance sur des données nouvelles.
 
 ```text
 Perte (Loss)
@@ -116,12 +116,12 @@ Perte (Loss)
     │       \  ────────►
     │        \_________
     │                  \
-    │                   * <- Fond de la vallée (Erreur minimale = Modèle performant !)
+    │                   * <- Minimum local de la perte d'entraînement
     └────────────────────────────────────────► Valeur du Poids w
 ```
 
 ### Le Taux d'Apprentissage (*Learning Rate* $\eta$) : La taille de vos pas
-- **Pas trop grands ($\eta$ trop élevé)** : Le randonneur saute de 50 mètres à la fois. Il saute par-dessus la vallée, percute la falaise d'en face et s'écrase dans le précipice (l'erreur diverge vers l'infini `NaN`).
+- **Pas trop grands ($\eta$ trop élevé)** : Le randonneur dépasse la vallée : la perte peut osciller ou diverger. Un débordement peut produire `inf` ; une opération numérique invalide peut produire `NaN` (« not a number »), qui n'est pas synonyme d'infini.
 - **Pas trop petits ($\eta$ minuscule)** : Le randonneur avance de 1 millimètre par heure. Il lui faudra 3 siècles pour descendre de la montagne, et il risque de rester bloqué dans une petite flaque d'eau (un minimum local).
 - **Pas adapté** : Il n'existe pas de plage universelle. La valeur dépend de l'optimiseur, de la normalisation, de la taille des lots et de l'architecture ; elle se choisit par expérimentation sur la validation.
 
@@ -129,12 +129,14 @@ Perte (Loss)
 - **SGD (Stochastic Gradient Descent)** : La descente de base. Simple mais sensible aux bosses du terrain.
 - **Adam (Adaptive Moment Estimation)** : Un optimiseur adaptatif très utilisé. Il combine notamment deux idées :
   1. *Momentum* : Donne une vitesse/inertie physique au modèle pour traverser les petites bosses sans ralentir.
-  2. *Taux adaptatif* : Réduit automatiquement la vitesse sur les paramètres qui changent trop vite et accélère sur ceux qui stagnent.
+  2. *Taux adaptatif* : Normalise le premier moment du gradient par la racine de son second moment, avec correction du biais d'initialisation. Cela ne garantit ni la sortie d'un plateau ni l'optimum global ; voir les [calculs guidés](../00_fondements_maths_python/complements_mathematiques.md).
 
 ### 2.2 La Rétropropagation (*Backpropagation*) : Remonter la chaîne des responsabilités
 Quand le réseau prédit un "Chien" alors que l'image représentait un "Chat", qui est coupable ?  
 Grâce à la **règle de dérivation en chaîne (*Chain Rule*)**, l'erreur commise en sortie est redistribuée à reculons, de la dernière couche vers la première. Chaque neurone se voit attribuer une fraction de la responsabilité et ses poids sont corrigés proportionnellement :
 $$\frac{\partial \mathcal{L}}{\partial \mathbf{W}^{(l)}} = \boldsymbol{\delta}^{(l)} \cdot (\mathbf{a}^{(l-1)})^T$$
+
+Pour un exemple, les activations sont ici des vecteurs colonnes : $W^{(l)}$ a la forme $[d_l,d_{l-1}]$, $a^{(l-1)}$ la forme $[d_{l-1},1]$ et $\delta^{(l)}=\partial\mathcal L/\partial z^{(l)}$ la forme $[d_l,1]$. Le produit extérieur donne $[d_l,d_{l-1}]$. Pour une perte moyenne sur un lot, moyenner les contributions. La « responsabilité » est une analogie : les gradients sont des sensibilités locales signées, pas des fractions positives qui se partagent une faute.
 
 ---
 

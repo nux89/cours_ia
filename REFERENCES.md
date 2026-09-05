@@ -1,6 +1,25 @@
 # Références et documentations de vérification
 
+## Compléments : médias et architectures de recherche
+
+Les lectures, mécanismes et limites sont développés dans le [support multimodal](01_nature_et_preparation_des_donnees/traitement_images_video_audio_multimodal.md) et l'[ouverture sur les architectures](03_deep_learning/architectures_emergentes.md). Sources primaires consultées pour cette extension le 5 septembre 2026 :
+
+- [Rééchantillonnage audio — documentation PyTorch](https://docs.pytorch.org/audio/stable/tutorials/audio_resampling_tutorial.html).
+- [Mamba : Selective State Spaces](https://arxiv.org/abs/2312.00752) et [Mamba-2 : Structured State Space Duality](https://arxiv.org/abs/2405.21060).
+- [Switch Transformers](https://arxiv.org/abs/2101.03961) : mélange d'experts parcimonieux.
+- [I-JEPA](https://arxiv.org/abs/2301.08243) : apprentissage de représentations prédictives.
+- [Flow Matching for Generative Modeling](https://arxiv.org/abs/2210.02747).
+- [KAN : Kolmogorov–Arnold Networks](https://arxiv.org/abs/2404.19756).
+
 Cette bibliographie privilégie les articles fondateurs, les documentations officielles et les référentiels de sécurité. Les bibliothèques évoluent : vérifier la documentation correspondant à la version installée.
+
+## Recherche, raisonnement et méthodes spécialisées
+
+- Russell et Norvig, [code associé à Artificial Intelligence: A Modern Approach](https://github.com/aimacode/aima-python) — recherche, logique, CSP et probabilités ; [manuel ouvert CS188 de Berkeley](https://inst.eecs.berkeley.edu/~cs188/textbook/) pour les explications.
+- PyWhy, [DoWhy — estimation des effets causaux](https://www.pywhy.org/dowhy/v0.13/user_guide/causal_tasks/estimating_causal_effects/index.html) — modéliser, identifier, estimer, éprouver les hypothèses.
+- Hyndman et Athanasopoulos, [Forecasting: Principles and Practice — validation temporelle](https://otexts.com/fpp3/tscv.html) — origines glissantes et horizons de prévision.
+- Hu, Koren et Volinsky (2008), [Collaborative Filtering for Implicit Feedback Datasets](https://doi.org/10.1109/ICDM.2008.22) — interactions implicites et confiance.
+- Kipf et Welling, [Semi-Supervised Classification with Graph Convolutional Networks](https://arxiv.org/abs/1609.02907) — propagation normalisée et apprentissage transductif.
 
 ## Données et machine learning
 

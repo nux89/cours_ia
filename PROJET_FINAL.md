@@ -2,7 +2,7 @@
 
 ## Mission
 
-Choisissez un problème de taille raisonnable dans l'une des trois voies : **ML tabulaire ou séquentiel**, **deep learning multimodal**, ou **système agentique avec RAG et outils simulés**. Votre objectif n'est pas d'obtenir le score le plus élevé, mais de produire une expérience traçable dont les choix, les limites et les risques peuvent être relus.
+Choisissez un problème de taille raisonnable : **ML tabulaire ou séquentiel**, **deep learning multimodal**, **système agentique documentaire**, **raisonnement symbolique/probabiliste**, ou **méthodes spécialisées**. Votre objectif est de produire une expérience traçable dont les choix, les limites et les risques peuvent être relus. La [matrice de compétences](PARCOURS_ET_EVALUATION.md) aide à choisir les TP préparatoires.
 
 Le rendu peut prolonger l'un des jeux du cours ou utiliser un jeu public dont la licence et la provenance sont documentées.
 
@@ -46,6 +46,22 @@ Le rendu peut prolonger l'un des jeux du cours ou utiliser un jeu public dont la
 - Tester au moins : source absente, injection indirecte, outil en panne, action non autorisée et boucle.
 - Exiger citations ou abstention pour les réponses documentaires et une approbation exacte pour toute écriture sensible.
 - Comparer l'orchestration retenue à un workflow ou agent unique plus simple.
+
+### D. Raisonnement symbolique ou probabiliste
+
+- Formaliser états/actions/coûts ou variables/domaines/contraintes ou loi factorisée.
+- Comparer une méthode à une référence vérifiable : A* versus Dijkstra, backtracking versus énumération, posterior versus somme exacte.
+- Fournir un cas limite : but inaccessible, contraintes contradictoires, observation rare.
+- Distinguer preuve d'impossibilité, budget épuisé et incertitude probabiliste.
+
+### E. Causalité, prévision, recommandation ou graphes
+
+- Causalité : préciser l'estimand, le DAG et les hypothèses d'identification ; comparer brut/ajusté et discuter la sensibilité.
+- Prévision : préciser origine et horizon ; comparer au naïf saisonnier avec backtest adapté.
+- Recommandation : documenter expositions, candidats, split et exclusion des items vus ; calculer ranking et couverture.
+- Graphes : préciser transductif/inductif, données visibles et arêtes test retirées si nécessaire ; comparer à une baseline sans propagation.
+
+Pour les voies D/E, adapter les étapes génériques : une preuve exacte sur un CSP ne nécessite pas un split train/test ; une estimation causale ne se valide pas par un score prédictif seul. La grille juge alors la séparation entre conception et évaluation, les hypothèses et les contre-exemples.
 
 ## Grille d'évaluation sur 100
 

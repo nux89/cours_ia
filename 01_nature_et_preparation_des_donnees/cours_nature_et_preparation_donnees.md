@@ -121,6 +121,8 @@ Exemples de pièges :
 
 ### 1.6 Panorama des données industrielles complexes
 
+Pour approfondir : le [support images, vidéo, audio et multimodal](traitement_images_video_audio_multimodal.md) détaille décodage, unités, géométrie, spectrogrammes, synchronisation, fusion et exercices corrigés.
+
 | Famille | Structure | Exemple industriel | Difficulté principale |
 | :--- | :--- | :--- | :--- |
 | Table relationnelle | lignes/colonnes liées par clés | clients, commandes, produits | jointures, granularité, doublons |
