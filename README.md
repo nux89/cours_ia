@@ -96,41 +96,46 @@ cours_ia/
 
 ## 🛠️ Installation & Démarrage Rapide
 
-### 1. Prérequis
-- **Python 3.10 à 3.12** installé sur votre machine.
-- Un gestionnaire d'environnement virtuel (`venv` ou `conda`).
+Le projet utilise **[uv](https://docs.astral.sh/uv/)** pour gérer l'environnement et les dépendances (`pyproject.toml` + `uv.lock`), ce qui garantit une installation **reproductible** (versions verrouillées, testées : scikit-learn 1.9, PyTorch 2.14, Polars 1.44).
 
-### 2. Création de l'environnement virtuel
-Ouvrez un terminal dans le répertoire `cours_ia` :
+### 1. Prérequis
+- **[uv](https://docs.astral.sh/uv/getting-started/installation/)** installé. uv sélectionne (et télécharge au besoin) un **Python 3.10 à 3.12** adapté : aucune installation manuelle de Python n'est requise.
+
+### 2. Installation de l'environnement
+Ouvrez un terminal dans le répertoire `cours_ia`, puis :
 
 ```bash
-# Création de l'environnement
-python3 -m venv venv_cours_ia
-
-# Activation de l'environnement
-# Sur macOS/Linux :
-source venv_cours_ia/bin/activate
-# Sur Windows :
-# .\venv_cours_ia\Scripts\activate
-
-# Installation des dépendances
-pip install --upgrade pip
-pip install -r requirements.txt
+# Crée .venv et installe toutes les dépendances verrouillées (numpy, pandas, polars,
+# scipy, scikit-learn, PyTorch, JupyterLab…), à l'identique grâce à uv.lock
+uv sync
 ```
 
 ### 3. Lancement des notebooks Jupyter
 ```bash
-jupyter lab
+uv run jupyter lab
 ```
 
-Naviguez dans les dossiers et exécutez les cellules pas à pas en lisant attentivement les explications et les exercices d'application.
+`uv run` exécute la commande dans l'environnement du projet sans activation manuelle (vous pouvez aussi activer `.venv` avec `source .venv/bin/activate`). Naviguez dans les dossiers et exécutez les cellules pas à pas en lisant attentivement les explications et les exercices d'application.
 
 Pour vérifier les liens et blocs des supports, puis exécuter tous les notebooks depuis la racine du projet :
 
 ```bash
-python scripts/validate_markdown.py
-python scripts/validate_notebooks.py
+uv run python scripts/validate_markdown.py
+uv run python scripts/validate_notebooks.py
 ```
+
+<details>
+<summary>Alternative sans uv (pip + venv)</summary>
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate          # Windows : .\.venv\Scripts\activate
+pip install --upgrade pip
+pip install -r requirements.txt
+jupyter lab
+```
+
+</details>
 
 Les références primaires et documentations officielles utilisées pour vérifier le contenu sont regroupées dans [REFERENCES.md](REFERENCES.md), et tout le vocabulaire du cursus dans le [glossaire transversal](GLOSSAIRE.md). Le diagnostic éditorial ayant conduit à la révision du cœur du cursus est consigné dans [AUDIT_PEDAGOGIQUE.md](AUDIT_PEDAGOGIQUE.md).
 

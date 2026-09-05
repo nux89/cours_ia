@@ -1,0 +1,28 @@
+[project]
+name = "cours-ia"
+version = "1.0.0"
+description = "Cursus universitaire d'intelligence artificielle : de la donnée aux systèmes agentiques."
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+
+# Bornes majeures : évitent qu'une future rupture d'API rende les TP non reproductibles.
+# Environnement pédagogique testé avec Python 3.10 à 3.12.
+dependencies = [
+    "numpy>=1.26,<3",
+    "pandas>=2.1,<4",
+    "polars>=1.0,<2",
+    "scipy>=1.11,<2",
+    "matplotlib>=3.8,<4",
+    "seaborn>=0.13,<1",
+    "scikit-learn>=1.4,<2",
+    "torch>=2.2,<3",
+    "jupyterlab>=4,<5",
+    "ipykernel>=6.29,<8",
+    "nbformat>=5.10,<6",
+    "nbclient>=0.10,<1",
+    "tqdm>=4.66,<5",
+]
+
+[tool.uv]
+# Projet « virtuel » : uv installe les dépendances dans .venv sans empaqueter le dépôt lui-même.
+package = false
