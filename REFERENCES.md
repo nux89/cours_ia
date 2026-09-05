@@ -52,3 +52,50 @@ Cette bibliographie privilégie les articles fondateurs, les documentations offi
 - OWASP, [AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) — moindre privilège, validation, approbations et journalisation.
 - OWASP, [Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html) — défense en profondeur contre les injections directes et indirectes.
 - OWASP, [MCP Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html) — menaces d'autorisation, délégation et chaîne d'approvisionnement autour des serveurs d'outils.
+
+## Fondements mathématiques et Python
+
+- Deisenroth, Faisal et Ong (2020), [Mathematics for Machine Learning](https://mml-book.github.io/), Cambridge University Press — algèbre linéaire, calcul différentiel, probabilités et optimisation pour l'IA (libre d'accès).
+- Goodfellow, Bengio et Courville (2016), [Deep Learning](https://www.deeplearningbook.org/), MIT Press — partie I : prérequis mathématiques.
+- NumPy, [documentation officielle](https://numpy.org/doc/stable/) et [NumPy: the absolute basics for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html) — tableaux, types et vectorisation.
+- NumPy, [Broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html) — règles d'extension des formes et pièges associés.
+- Python, [Floating-Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html) — pourquoi `0.1 + 0.2 != 0.3` et comment comparer des flottants.
+
+## Traitement du langage naturel et grands modèles de langage
+
+- Jurafsky et Martin, [Speech and Language Processing (3e édition, brouillon)](https://web.stanford.edu/~jurafsky/slp3/) — référence de NLP, du prétraitement aux Transformers.
+- Mikolov et al. (2013), [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/abs/1301.3781) — word2vec et sémantique distributionnelle.
+- Pennington, Socher et Manning (2014), [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/projects/glove/) — embeddings par co-occurrence.
+- Sennrich, Haddow et Birch (2016), [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909) — tokenisation par sous-mots (BPE).
+- Devlin et al. (2019), [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805) — encodeur bidirectionnel.
+- Brown et al. (2020), [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165) — apprentissage en contexte (in-context learning).
+- Hugging Face, [Transformers documentation](https://huggingface.co/docs/transformers/index) — tokenizers, modèles préentraînés et stratégies de génération.
+
+## Apprentissage par renforcement
+
+- Sutton et Barto (2018), [Reinforcement Learning: An Introduction (2e édition)](http://incompleteideas.net/book/the-book-2nd.html) — référence fondatrice, libre d'accès.
+- Mnih et al. (2015), [Human-level control through deep reinforcement learning](https://doi.org/10.1038/nature14236), *Nature* — Deep Q-Network (DQN).
+- Schulman et al. (2017), [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347) — PPO, largement utilisé y compris pour le RLHF.
+- Silver et al. (2016), [Mastering the game of Go with deep neural networks and tree search](https://doi.org/10.1038/nature16961), *Nature* — AlphaGo.
+- Christiano et al. (2017), [Deep Reinforcement Learning from Human Preferences](https://arxiv.org/abs/1706.03741) — fondements du RLHF.
+- Ouyang et al. (2022), [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) — InstructGPT et alignement par préférences.
+
+## MLOps et mise en production
+
+- Sculley et al. (2015), [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html), NeurIPS — dette technique propre aux systèmes ML.
+- Breck et al. (2017), [The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/) — tests d'un système d'apprentissage.
+- Google, [Rules of Machine Learning](https://developers.google.com/machine-learning/guides/rules-of-ml) — bonnes pratiques d'ingénierie ML.
+- Google Cloud, [MLOps: Continuous delivery and automation pipelines in machine learning](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) — niveaux de maturité MLOps.
+- Scikit-Learn, [Model persistence](https://scikit-learn.org/stable/model_persistence.html) — sérialisation des modèles et pièges de version.
+- MLflow, [Documentation](https://mlflow.org/docs/latest/index.html) — suivi d'expériences et registre de modèles.
+
+## Éthique, sécurité et régulation
+
+- Barocas, Hardt et Narayanan (2023), [Fairness and Machine Learning: Limitations and Opportunities](https://fairmlbook.org/) — biais, équité et résultats d'impossibilité (libre d'accès).
+- Hardt, Price et Srebro (2016), [Equality of Opportunity in Supervised Learning](https://arxiv.org/abs/1610.02413) — définitions d'équité et compromis.
+- Union européenne, [Règlement (UE) 2024/1689 (AI Act)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) — approche de l'IA par niveaux de risque.
+- Union européenne, [Règlement (UE) 2016/679 (RGPD)](https://eur-lex.europa.eu/eli/reg/2016/679/oj) — protection des données personnelles.
+- Dwork et Roth (2014), [The Algorithmic Foundations of Differential Privacy](https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf) — confidentialité différentielle.
+- Strubell, Ganesh et McCallum (2019), [Energy and Policy Considerations for Deep Learning in NLP](https://arxiv.org/abs/1906.02243) — impact environnemental des modèles.
+
+*Voir aussi, dans les sections ci-dessus, le NIST AI Risk Management Framework, les Model Cards (Mitchell et al.) et les Datasheets for Datasets (Gebru et al.), également mobilisés par les modules 7 et 8.*
