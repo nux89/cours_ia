@@ -45,7 +45,8 @@ Le cursus s'articule autour de **quatre modules cœur** (1 à 4), progressifs et
 ```text
 cours_ia/
 ├── 00_fondements_maths_python/
-│   └── cours_fondements_maths_python.md         # Algèbre linéaire, gradient, probas-stats, NumPy
+│   ├── cours_fondements_maths_python.md         # Algèbre linéaire, gradient, probas-stats, NumPy
+│   └── 01_maths_numpy_pratique.ipynb            # TP : produit scalaire, descente de gradient, Bayes, NumPy
 │
 ├── 01_nature_et_preparation_des_donnees/
 │   ├── cours_nature_et_preparation_donnees.md   # Typologie, EDA, associations, qualité, gouvernance & dérive
@@ -69,16 +70,20 @@ cours_ia/
 │   └── 01_tp_agent_autonome.ipynb               # TP : boucle d'outils sûre et testable (sans API)
 │
 ├── 05_nlp_et_llms/
-│   └── cours_nlp_et_llms.md                     # Texte, embeddings, tâches NLP, LLMs, prompting & décodage
+│   ├── cours_nlp_et_llms.md                     # Texte, embeddings, tâches NLP, LLMs, prompting & décodage
+│   └── 01_nlp_tfidf_embeddings.ipynb            # TP : TF-IDF, baseline de classification, cosinus, température
 │
 ├── 06_apprentissage_par_renforcement/
-│   └── cours_apprentissage_par_renforcement.md  # MDP, valeurs, Q-learning, policy gradient, Deep RL & RLHF
+│   ├── cours_apprentissage_par_renforcement.md  # MDP, valeurs, Q-learning, policy gradient, Deep RL & RLHF
+│   └── 01_qlearning_gridworld.ipynb             # TP : MDP en grille, Q-learning tabulaire, ε-greedy
 │
 ├── 07_mlops_production/
-│   └── cours_mlops_production.md                # Reproductibilité, pipelines, registre, serving & monitoring
+│   ├── cours_mlops_production.md                # Reproductibilité, pipelines, registre, serving & monitoring
+│   └── 01_pipeline_persistance_derive.ipynb     # TP : pipeline sans fuite, persistance, skew, dérive (KS)
 │
 ├── 08_ethique_securite_regulation/
-│   └── cours_ethique_securite_regulation.md     # Biais/équité, vie privée, régulation, sécurité & impact
+│   ├── cours_ethique_securite_regulation.md     # Biais/équité, vie privée, régulation, sécurité & impact
+│   └── 01_equite_metriques.ipynb                # TP : métriques par sous-groupe et arbitrage d'équité
 │
 ├── GLOSSAIRE.md                                 # Index unique de tout le vocabulaire
 ├── PROJET_FINAL.md                              # Projet intégrateur + grille sur 100
