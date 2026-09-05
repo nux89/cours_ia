@@ -1,5 +1,7 @@
 # Module 6 : L'Apprentissage par Renforcement (Reinforcement Learning)
 
+> **Étape 8/11 du parcours** · [← Précédent](../10_methodes_specialisees/cours_methodes_specialisees.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../04_ia_agentique/cours_ia_agentique.md)
+
 > Là où l'apprentissage supervisé reçoit la bonne réponse à chaque exemple, l'apprentissage par renforcement (RL) n'a qu'un **signal de récompense** différé et partiel. L'agent doit **découvrir par essais et erreurs** quelles suites d'actions maximisent une récompense cumulée. C'est le troisième grand paradigme annoncé dans la taxonomie du module 2, et le mécanisme derrière l'alignement des LLMs vu au module 5.
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez formaliser un problème de décision séquentielle en processus de décision markovien (MDP), distinguer politique, valeur et récompense, comprendre le dilemme exploration/exploitation, expliquer Q-learning et gradient de politique, situer le Deep RL et le RLHF, et reconnaître les pièges de spécification de récompense et de sécurité avant tout déploiement.

@@ -1,5 +1,7 @@
 # Module 0 : Fondements Mathématiques et Python pour l'IA
 
+> **Étape 1/11 du parcours** · [← Accueil](../README.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../01_nature_et_preparation_des_donnees/cours_nature_et_preparation_donnees.md)
+
 > Les mathématiques de l'IA ne sont pas un rite de passage : ce sont les quelques outils qui rendent le reste **compréhensible plutôt que magique**. Trois idées reviennent partout : *empiler des nombres* (algèbre linéaire), *descendre une pente* (calcul différentiel) et *raisonner sous incertitude* (probabilités). Ce module installe ces intuitions et l'outillage Python associé.
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez lire et manipuler vecteurs, matrices et tenseurs, interpréter un produit scalaire et une norme, comprendre ce que calcule un gradient et pourquoi on le suit, raisonner avec des probabilités et une vraisemblance, distinguer estimation et vérité, reconnaître les pièges numériques du calcul flottant, et écrire du NumPy vectorisé reproductible.

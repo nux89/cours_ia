@@ -1,5 +1,7 @@
 # Module 7 : MLOps et Ingénierie de la Mise en Production
 
+> **Étape 11/11 du parcours** · [← Précédent](../08_ethique_securite_regulation/cours_ethique_securite_regulation.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Projet final →](../PROJET_FINAL.md)
+
 > Un modèle qui obtient un excellent score dans un notebook n'a créé **aucune valeur** tant qu'il ne sert pas une décision de façon fiable, surveillée et maintenable. Le MLOps est l'ensemble des pratiques qui transforment une expérience reproductible en **système vivant** : versionné, testé, déployé progressivement, observé et réparable. Ce module consolide et approfondit les sections « cycle de vie » (module 2), « déploiement » (module 3) et « observabilité » (module 4).
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez rendre une expérience reproductible et traçable, organiser des pipelines de données et de features sans fuite, gérer un registre de modèles et un déploiement progressif, choisir un mode de service adapté à la latence, mettre en place une surveillance à plusieurs niveaux (service, données, modèle, impact), réagir à une dérive et concevoir des tests spécifiques aux systèmes d'apprentissage.

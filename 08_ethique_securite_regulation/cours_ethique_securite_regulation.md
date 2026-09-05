@@ -1,10 +1,12 @@
 # Module 8 : Éthique, Sécurité, Régulation et Impact de l'IA
 
+> **Étape 10/11 du parcours** · [← Précédent](../04_ia_agentique/cours_ia_agentique.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../07_mlops_production/cours_mlops_production.md)
+
 > L'éthique n'est pas une couche de vernis ajoutée à la fin : c'est une **contrainte d'ingénierie** présente à chaque étape, du cadrage des données au retrait d'un modèle. Un système techniquement performant peut être inéquitable, opaque, illégal ou nuisible. Ce module consolide et approfondit ce qui était distribué dans le cursus (biais et vie privée du module 1, interprétabilité du module 2, garde-fous du module 4) et y ajoute le cadre réglementaire et l'impact sociétal et environnemental.
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez identifier et mesurer plusieurs formes de biais, comprendre pourquoi certaines définitions d'équité sont incompatibles, appliquer les principes de protection des données, situer les grandes obligations réglementaires (dont l'approche par niveaux de risque), articuler sécurité et sûreté d'un système d'IA, estimer et réduire son impact environnemental, et mettre en place une gouvernance responsable avec documentation et supervision humaine.
 
-**Prérequis.** L'ensemble du cursus, en particulier modules 1 (biais, vie privée, gouvernance), 2 (interprétabilité, robustesse), 4 (sécurité agentique) et 7 (production). Ce module est **transversal** : il éclaire les décisions prises dans tous les autres.
+**Prérequis.** Pour la synthèse complète : modules 1 (données), 2 (métriques) et 4 (risques agentiques). Les principes des sections 1 et 4 se lisent dès la collecte ; les sections 2–3 accompagnent le ML. Le module 7 n'est pas un prérequis : il concrétisera ensuite la gouvernance en production. Ce module est **transversal**, puis consolidé avant le déploiement.
 
 ---
 

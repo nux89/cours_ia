@@ -1,5 +1,7 @@
 # Module 5 : Traitement du Langage Naturel (NLP) et Grands Modèles de Langage
 
+> **Étape 6/11 du parcours** · [← Précédent](../03_deep_learning/cours_deep_learning.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../10_methodes_specialisees/cours_methodes_specialisees.md)
+
 > Le langage est la donnée la plus abondante et la plus ambiguë. Une même phrase peut être ironique, contextuelle ou dépendante du monde extérieur. Ce module relie les représentations classiques du texte (sacs de mots, TF-IDF, embeddings) aux modèles séquentiels et aux Transformers du module 3, puis aux grands modèles de langage (LLMs) qui alimentent l'IA agentique du module 4.
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez préparer du texte (normalisation, tokenisation), le représenter (one-hot, TF-IDF, embeddings), choisir une baseline solide, situer les grandes tâches du NLP, expliquer le passage du seq2seq au Transformer pour le langage, décrire ce qu'un LLM apprend réellement en préentraînement, piloter la génération (décodage, prompting, in-context learning), et évaluer un système de langage en tenant compte de l'hallucination, du coût et des biais.

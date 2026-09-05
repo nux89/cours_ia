@@ -1,5 +1,7 @@
 # Module 1 : Nature, Mise en Forme et Préparation des Données pour l'IA
 
+> **Étape 2/11 du parcours** · [← Précédent](../00_fondements_maths_python/cours_fondements_maths_python.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../02_machine_learning/cours_machine_learning.md)
+
 > **"Garbage In, Garbage Out"** : la qualité, la représentativité et la traçabilité des données limitent directement ce que l'on peut conclure d'un modèle. La part de travail consacrée aux données varie fortement selon le projet ; l'enjeu est de rendre chaque décision de préparation explicite et vérifiable.
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez identifier l'unité d'observation et la cible, auditer un jeu de données, choisir une stratégie de découpage réaliste, construire un prétraitement reproductible sans fuite d'information et définir des contrôles de qualité avant la mise en production.

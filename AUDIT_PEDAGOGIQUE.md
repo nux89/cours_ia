@@ -8,6 +8,8 @@ Le cursus comprend désormais 11 modules et 21 notebooks. La revue a relié obje
 
 ### Corrections et enrichissements appliqués
 
+- Ordre pédagogique harmonisé : **0 → 1 → 2 → 9 → 3 → 5 → 10 → 6 → 4 → 8 → 7**, puis projet final. README, matrice d'évaluation et navigation des onze cours suivent ce parcours. Les identifiants historiques ne sont pas renumérotés. Les séquences internes placent notamment split avant prétraitement, tenseurs/pertes avant entraînement, et contrats/garde-fous avant multi-agents. La lecture éthique commence avec les données ; le module 8 n'exige plus d'avoir étudié la production. Les ouvertures avancées sont distinguées des prérequis.
+
 - Mathématiques : préciser axes des tenseurs, cosinus de vecteurs non nuls, convexité et unicité, probabilité continue, hypothèses des lois et du TCL, erreur standard et dépendance des folds. Corriger le point-selle, expliciter biais–variance, dimensions de backpropagation, mécanisme d'Adam et conditions de convergence du Q-learning.
 - Ajouter un [support de calculs guidés](00_fondements_maths_python/complements_mathematiques.md) : produit matriciel, dérivée MSE, softmax/entropie croisée, covariance/PCA, attention et pas d'optimisation avec exemples numériques.
 - Développer [images, audio, vidéo et multimodal](01_nature_et_preparation_des_donnees/traitement_images_video_audio_multimodal.md) : formats industriels, unités, annotations, rééchantillonnage, STFT, alignement temporel, modes de fusion, absence de modalités et séparation par groupe.

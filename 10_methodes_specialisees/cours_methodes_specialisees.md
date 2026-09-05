@@ -1,5 +1,7 @@
 # Module 10 — Causalité, prévision, recommandation et apprentissage sur graphes
 
+> **Étape 7/11 du parcours** · [← Précédent](../05_nlp_et_llms/cours_nlp_et_llms.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../06_apprentissage_par_renforcement/cours_apprentissage_par_renforcement.md)
+
 ## Objectifs, prérequis et méthode
 
 Après les modules 0 à 3, ce module apprend à définir quatre problèmes que ne résout pas un simple changement de classifieur. Prévoir 10 à 15 heures avec les deux TP et leur correction. Chaque section suit le même raisonnement : question métier, hypothèses, représentation, modèle, évaluation et limites.

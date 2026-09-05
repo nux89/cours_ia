@@ -1,5 +1,7 @@
 # Module 3 : Théorie et Architectures du Deep Learning
 
+> **Étape 5/11 du parcours** · [← Précédent](../09_raisonnement_symbolique_probabiliste/cours_raisonnement_symbolique_probabiliste.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../05_nlp_et_llms/cours_nlp_et_llms.md)
+
 > "Le Deep Learning consiste à apprendre des représentations hiérarchiques de données à travers des couches successives de transformations non-linéaires." — Yann LeCun, Yoshua Bengio, Geoffrey Hinton (Nature, 2015)
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez suivre les formes d'un tenseur, expliquer la rétropropagation, construire une boucle d'entraînement correcte, sélectionner architecture et fonction de perte, diagnostiquer sous/surapprentissage, décrire précisément un Transformer et évaluer un réseau au-delà de la seule loss.

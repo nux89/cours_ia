@@ -1,5 +1,7 @@
 # Module 2 : Fondements Théoriques et Algorithmiques du Machine Learning
 
+> **Étape 3/11 du parcours** · [← Précédent](../01_nature_et_preparation_des_donnees/cours_nature_et_preparation_donnees.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../09_raisonnement_symbolique_probabiliste/cours_raisonnement_symbolique_probabiliste.md)
+
 > L'apprentissage automatique construit des règles de prédiction ou de décision à partir d'exemples, d'un objectif mesurable et d'hypothèses de modélisation. Il ne supprime ni la programmation, ni le besoin de spécifier correctement le problème.
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez formaliser une tâche supervisée ou non supervisée, établir une baseline, relier perte d'entraînement et métrique métier, choisir une famille de modèles, régler ses hyperparamètres sans contaminer le test et présenter une évaluation avec incertitudes et limites.

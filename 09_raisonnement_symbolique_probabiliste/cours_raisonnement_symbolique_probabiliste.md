@@ -1,5 +1,7 @@
 # Module 9 — Recherche, logique, contraintes et raisonnement probabiliste
 
+> **Étape 4/11 du parcours** · [← Précédent](../02_machine_learning/cours_machine_learning.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../03_deep_learning/cours_deep_learning.md)
+
 ## Objectifs et parcours
 
 Ce module complète l'apprentissage statistique par des systèmes dont les états, règles et hypothèses sont explicites. À l'issue du parcours, vous saurez formaliser un problème de recherche, choisir une stratégie, vérifier une règle logique, résoudre un petit problème de contraintes et calculer une probabilité dans un réseau bayésien.

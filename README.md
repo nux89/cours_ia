@@ -35,7 +35,11 @@ Les [objectifs, exercices et critères de réussite](PARCOURS_ET_EVALUATION.md) 
 - [Ateliers de deep learning](03_deep_learning/ateliers_avances.md) : [transfert et fine-tuning](03_deep_learning/06_transfert_fine_tuning.ipynb), [captioning CNN–GRU](03_deep_learning/07_captioning_cnn_gru.ipynb), [diffusion 2D](03_deep_learning/08_diffusion_2d.ipynb).
 - [Atelier documentaire](04_ia_agentique/atelier_rag_documentaire.md) : [recherche dans les cours, citations et abstention](04_ia_agentique/02_rag_documents_citations.ipynb).
 
-Ordre conseillé : module 0, module 9, modules 1 à 3, module 10, modules 5 puis 4, module 6, modules 7 et 8. La numérotation historique des modules est conservée. Les ateliers neuronaux suivent le module 3 ; le TP documentaire suit le module 4.
+### Ordre pédagogique de référence
+
+**Fondements → Données → ML → Raisonnement symbolique → Deep learning → NLP/LLMs → Méthodes spécialisées → Renforcement → Agentique → Éthique et sécurité → Production → Projet final.**
+
+Cela correspond aux modules **0 → 1 → 2 → 9 → 3 → 5 → 10 → 6 → 4 → 8 → 7**. Les dossiers gardent leurs numéros historiques pour préserver les liens ; ne pas les lire simplement dans l'ordre numérique. Le [parcours détaillé](PARCOURS_ET_EVALUATION.md) précise les prérequis, les critères de passage et l'ordre des sections et TP. Chaque cours propose une navigation précédent/suivant. Les principes éthiques accompagnent la collecte dès le module 1 ; le module 8 les consolide avant le déploiement.
 
 ---
 
@@ -202,6 +206,6 @@ SOCLE ET COUCHES TRANSVERSALES
 ---
 
 ## 📚 Recommandations de travail pour les étudiants
-- **Suivez l'ordre des modules** : Ne commencez pas par le Deep Learning sans avoir compris ce qu'est un jeu de données d'entraînement (`Train`) et de test (`Test`) au Module 1.
+- **Suivez le parcours pédagogique, pas les numéros des dossiers** : utilisez [la progression de référence](PARCOURS_ET_EVALUATION.md). Ne commencez pas le deep learning avant les données et l'évaluation ML, ni l'agentique avant les notions de langage et de récupération.
 - **Gardez un carnet de notes** : Notez avec vos propres mots les définitions des termes récurrents (*overfitting*, *gradient*, *loss*, *batch*, *epoch*).
 - **Vérifiez votre compréhension** en expliquant à voix haute les concepts à quelqu'un d'autre (technique de Feynman).

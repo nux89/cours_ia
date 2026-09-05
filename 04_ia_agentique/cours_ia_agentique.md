@@ -1,12 +1,14 @@
 # Module 4 : L'Intelligence Artificielle Agentique
 
+> **Étape 9/11 du parcours** · [← Précédent](../06_apprentissage_par_renforcement/cours_apprentissage_par_renforcement.md) · [Progression et ordre des sections](../PARCOURS_ET_EVALUATION.md) · [Suivant →](../08_ethique_securite_regulation/cours_ethique_securite_regulation.md)
+
 Pratique complémentaire : l'[atelier documentaire](atelier_rag_documentaire.md) met en œuvre récupération dans les cours, citations et abstention. Il distingue cette chaîne extractive hors ligne d'un RAG avec génération par LLM.
 
 > "Les modèles de fondation ne sont pas la destination finale de l'IA, ils en sont le moteur cognitif. L'agentique transforme ce moteur en un système autonome capable de percevoir, raisonner, planifier et agir dans le monde réel."
 
 **Objectifs du module.** À l'issue de ce chapitre, vous saurez distinguer modèle, workflow et agent ; concevoir un RAG avec citations ; séparer base de connaissances, mémoire, outils et skills ; écrire des contrats d'outils sûrs ; choisir une orchestration mono ou multi-agent ; définir garde-fous, évaluations, observabilité et conditions d'arrêt avant la mise en production.
 
-**Prérequis.** Modules 1 à 3, fonctions Python, JSON, API et tests unitaires élémentaires. Le notebook associé implémente hors ligne une boucle d'agent déterministe, inspectable et testable.
+**Prérequis.** Modules 1 à 3 et 5 (tokens, embeddings, LLMs et hallucinations), fonctions Python, JSON, API et tests unitaires élémentaires. Le module 9 prépare la distinction règles/recherche/apprentissage ; le module 6 aide à distinguer agent RL et orchestration, sans être indispensable à une boucle d'outils. Les TP implémentent une orchestration déterministe et une récupération documentaire hors ligne, inspectables et testables.
 
 ---
 
